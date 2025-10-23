@@ -1,0 +1,74 @@
+.section {
+	width: 100%;
+	padding: 2rem 1rem;
+	box-sizing: border-box;
+}
+
+.inner {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.title {
+	font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+    font-size: 2.5em;
+    color: #000000 !important;
+    line-height: 1.3em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.content {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 2rem;
+	align-items: start;
+}
+
+.text p {
+	line-height: 1.9;
+	color: #111827;
+	margin: 0 0 1.25rem 0;
+    text-align: left;
+    font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+    font-size: 16px;
+}
+.text {
+    width: 50%;
+}
+
+.images {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.photo {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	display: block;
+}
+
+@media (max-width: 1000px) {
+	.content {
+		grid-template-columns: 1fr;
+	}
+	.images {
+		flex-direction: row;
+		gap: 0.5rem;
+	}
+	.photo {
+		width: 50%;
+	}
+}
+
+@media (max-width: 520px) {
+	.title {
+		font-size: 1.75rem;
+	}
+	.photo {
+		width: 100%;
+	}
+}

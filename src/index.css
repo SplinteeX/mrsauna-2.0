@@ -1,0 +1,7 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	/* Allow natural document height so the page can scroll */
+	width: 100%;
+	min-height: 100%;
+}

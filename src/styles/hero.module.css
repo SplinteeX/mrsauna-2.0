@@ -1,0 +1,114 @@
+.hero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+    background-image: linear-gradient(rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%), 
+                      url("background-image.webp") !important;
+	background-size: cover;           /* ✅ Makes the image cover the whole area */
+	background-repeat: no-repeat;     /* ✅ Prevents the image from repeating */
+	background-position: center;      /* ✅ Keeps it centered */
+	color: #0f172a;
+	overflow: hidden;
+}
+
+/* ✅ Hero inner structure */
+.heroInner {
+	width: 100%;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.heroContent {
+	padding: 1rem 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.title {
+    font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+    font-size: 80px;
+    letter-spacing: 6px;
+    line-height: 1.4em;
+    text-align: center;
+    color: #fff;
+    margin: 0px;
+}
+
+.subtitle {
+    font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
+	font-size: 2.25em;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.ctaRow {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.primaryBtn {
+	background: #0ea5a4;
+	color: #fff;
+	border: none;
+	padding: 0.75rem 1.25rem;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.secondaryLink {
+	color: #0f172a;
+	opacity: 0.85;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.heroMedia {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.heroImage {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Responsive tweaks */
+@media (max-width: 880px) {
+	.heroInner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+	.heroMedia {
+		order: -1;
+	}
+	.title {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 520px) {
+	.title {
+		font-size: 1.5rem;
+	}
+	.subtitle {
+		font-size: 1rem;
+	}
+	.ctaRow {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.primaryBtn {
+		width: 100%;
+	}
+}
