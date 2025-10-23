@@ -1,0 +1,551 @@
+.sliderContainer {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 1rem;
+  position: relative; /* allow overlaying title and properly position arrows */
+  display: flex;
+  flex-direction: column; /* ensure title sits above the slider */
+  gap: 0.75rem; /* space between title and slider */
+}
+.sliderContainer img {
+  width: 100%;
+}
+/* Smaller sliders for side-by-side layout */
+.allSliders .sliderContainer {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sliderTitle {
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 28px;
+  color: #222222;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Make titles slightly larger on very wide screens */
+@media (min-width: 1200px) {
+  .sliderTitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Consistent, aligned slider */
+.slider {
+  position: relative;
+  aspect-ratio: 16 / 9; /* uniform aspect ratio for perfect alignment */
+  max-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Smaller sliders for side-by-side layout */
+.allSliders .slider {
+  aspect-ratio: unset;
+  /* make side-by-side sliders a bit larger so images read clearer */
+  height: 450px;
+  border-radius: 10px;
+}
+
+.slideWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+/* Blurred background behind contained image */
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-url) center/cover no-repeat;
+  filter: blur(20px) brightness(0.6);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Perfect image alignment */
+.slide img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 1;
+  transform: scale(1.08); /* <-- makes image slightly larger */
+  transition: transform 0.4s ease;
+}
+
+/* Dynamically set the background image in JS */
+.slide[style*="--bg-url"]::before {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Smaller arrows for side-by-side layout */
+.allSliders .arrow {
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
+.arrow:hover {
+  background: rgba(129, 129, 129, 0.2);
+}
+
+.leftArrow {
+  left: 12px; /* consistent offset from edge */
+}
+
+.rightArrow {
+  right: 12px; /* consistent offset from edge */
+}
+
+/* Adjusted arrow positioning for smaller sliders */
+.allSliders .leftArrow {
+  left: 12px;
+}
+
+.allSliders .rightArrow {
+  right: 12px;
+}
+/* Titles for compact side-by-side layout */
+.allSliders .sliderTitle {
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 24px;
+  color: #222222;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Responsive behavior */
+@media (max-width: 1024px) {
+  .sliderContainer {
+    padding: 0 0.5rem;
+  }
+
+  .slider {
+    max-height: 400px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    aspect-ratio: 16 / 9;
+    max-height: 300px;
+  }
+
+  .arrow {
+    padding: 0.4rem;
+    font-size: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .sliderTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive adjustments for side-by-side sliders */
+  .allSliders .slider {
+    height: 180px;
+  }
+
+  .allSliders .sliderTitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .allSliders .arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    aspect-ratio: 16 / 9;
+    max-height: 200px;
+  }
+
+  .sliderTitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .allSliders .slider {
+    height: 150px;
+  }
+
+  .allSliders .sliderTitle {
+    font-size: 0.8rem;
+  }
+
+  .allSliders .arrow {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .sliderContainer {
+    padding: 0 0.25rem;
+    margin: 1rem auto;
+  }
+
+  .slider {
+    max-height: 160px;
+    border-radius: 8px;
+  }
+
+  .sliderTitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+
+  .leftArrow {
+    left: 5px;
+  }
+
+  .rightArrow {
+    right: 5px;
+  }
+
+  .allSliders .slider {
+    height: 100px;
+    border-radius: 6px;
+  }
+
+  .allSliders .sliderTitle {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+    height: 2rem;
+  }
+
+  .allSliders .arrow {
+    width: 18px;
+    height: 18px;
+    font-size: 0.6rem;
+  }
+
+  .allSliders .leftArrow {
+    left: 3px;
+  }
+
+  .allSliders .rightArrow {
+    right: 3px;
+  }
+
+  .dots {
+    margin-top: 0.5rem;
+    gap: 0.3rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .slider {
+    max-height: 140px;
+  }
+
+  .sliderTitle {
+    font-size: 0.8rem;
+  }
+
+  .allSliders .slider {
+    height: 80px;
+  }
+
+  .allSliders .sliderTitle {
+    font-size: 0.6rem;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.98);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  cursor: pointer;
+}
+
+/* Add blur background in modal as well */
+.modalContent {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modalContent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-url) center/cover no-repeat;
+  filter: blur(25px) brightness(0.5);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.modalContent img {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  z-index: 1;
+  cursor: default;
+}
+
+.closeButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 100001;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modalArrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100001;
+}
+
+.modalArrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modalLeftArrow {
+  left: 20px;
+}
+
+.modalRightArrow {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 95vw;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .modalArrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .modalLeftArrow {
+    left: 10px;
+  }
+
+  .modalRightArrow {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .closeButton {
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .modalArrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .modalLeftArrow {
+    left: 5px;
+  }
+
+  .modalRightArrow {
+    right: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modalContent img {
+    max-width: 98vw;
+    max-height: 98vh;
+  }
+
+  .closeButton {
+    top: 5px;
+    right: 5px;
+    font-size: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modalArrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .modalLeftArrow {
+    left: 5px;
+  }
+
+  .modalRightArrow {
+    right: 5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .closeButton {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .modalArrow {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+}

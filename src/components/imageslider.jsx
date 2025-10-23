@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
+import styles from "../styles/imageslider.module.css";
 
 export default function ImageSlider({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -89,7 +91,112 @@ export default function ImageSlider({ images, title }) {
   // 🌀 Add blurred background image to modal dynamically
   useEffect(() => {
     if (modalRef.current && images[currentIndex]) {
-      modalRef.current.style.setProperty("--bg-url", `url(${images[currentIndex]})`);
+      modalRef.current.style.setProperty(
+        "--bg-url",
+        `url(${images[currentIndex]})`
+      );
     }
   }, [isModalOpen, currentIndex, images]);
+
+  return (
+    <div className={styles.sliderContainer} id="galleria">
+      <h3 className={styles.sliderTitle}>{title}</h3>
+
+      <div className={styles.slider}>
+        <button
+          className={`${styles.arrow} ${styles.leftArrow}`}
+          onClick={prevSlide}
+        >
+          ❮
+        </button>
+
+        <div
+          className={styles.slideWrapper}
+          ref={sliderRef}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`${styles.slide} ${
+                index === currentIndex ? styles.active : ""
+              }`}
+              style={{
+                transform: `translateX(${(index - currentIndex) * 100}%)`,
+              }}
+              onClick={() => setIsModalOpen(true)}
+            >
+              <img src={image} alt={`Slide ${index + 1}`} draggable="false" />
+            </div>
+          ))}
+        </div>
+
+        <button
+          className={`${styles.arrow} ${styles.rightArrow}`}
+          onClick={nextSlide}
+        >
+          ❯
+        </button>
+      </div>
+
+      <div className={styles.dots}>
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.dot} ${
+              index === currentIndex ? styles.activeDot : ""
+            }`}
+            onClick={() => goToSlide(index)}
+          />
+        ))}
+      </div>
+
+      {isModalOpen &&
+        createPortal(
+          <div className={styles.modal} onClick={() => setIsModalOpen(false)}>
+            <div
+              className={styles.modalContent}
+              ref={modalRef}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className={styles.closeButton}
+                onClick={() => setIsModalOpen(false)}
+              >
+                ✕
+              </button>
+
+              <img
+                src={images[currentIndex]}
+                alt={`Slide ${currentIndex + 1}`}
+                draggable="false"
+              />
+
+              <button
+                className={`${styles.modalArrow} ${styles.modalLeftArrow}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevSlide();
+                }}
+              >
+                ❮
+              </button>
+
+              <button
+                className={`${styles.modalArrow} ${styles.modalRightArrow}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextSlide();
+                }}
+              >
+                ❯
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
+    </div>
+  );
 }
