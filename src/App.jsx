@@ -14,12 +14,20 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Yritys />
+      <section id="etusivu">
+        <Hero />
+      </section>
+      <section id="yritys">
+        <Yritys />
+      </section>
       <Remontti />
-      <Palvelumme />
+      <section id="palvelumme">
+        <Palvelumme />
+      </section>
       <Kuvakaruselli />
-      <Footer />
+      <section id="yhteystiedot">
+        <Footer />
+      </section>
     </>
   );
 }
