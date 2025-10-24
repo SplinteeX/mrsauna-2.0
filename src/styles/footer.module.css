@@ -1,0 +1,137 @@
+.footer {
+  position: relative;
+  padding: 5rem 2rem;
+  background: url("/kiulu_2.webp") no-repeat center center;
+  background-size: cover;
+  color: #eaeaea;
+  text-align: center;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.footerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.contactDetails p,
+.contactInfo p {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: black;
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+}
+
+.contactInfo a {
+  text-decoration: none;
+}
+
+.highlight {
+  color: #a02c10;
+  font-weight: 600;
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+}
+
+.badge {
+  background-color: #2e7d32;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-top: 1rem;
+}
+
+.facebookIcon {
+  background-color: #c62828;
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.facebookIcon:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .contactDetails p,
+  .contactInfo p {
+    font-size: 1rem;
+  }
+
+  .badge {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .facebookIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .contactDetails p,
+  .contactInfo p {
+    font-size: 0.9rem;
+  }
+
+  .badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .facebookIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+}

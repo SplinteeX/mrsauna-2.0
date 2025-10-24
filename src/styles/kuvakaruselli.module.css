@@ -1,16 +1,9 @@
 /* === Kuvakaruselli Section === */
-.kuvakaruselli {
-  background: linear-gradient(
-    to bottom,
-    rgba(45, 35, 30, 0.97) 0%,
-    rgba(35, 28, 23, 0.97) 100%
-  );
-  padding: 4rem 0;
+.servicesSection div {
   position: relative;
-  overflow: hidden;
 }
 
-.kuvakaruselli::before {
+.servicesSection div::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -60,8 +53,8 @@
 
 /* === Sliders Container === */
 .allSliders {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 2rem;
   padding: 2rem;
   width: 100%;
@@ -78,7 +71,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-
 /* === Responsive Adjustments === */
 @media (max-width: 1024px) {
   .allSliders {
@@ -91,7 +83,7 @@
     grid-template-columns: 1fr;
   }
 
-  .kuvakaruselli {
+  .servicesSection {
     padding: 3rem 0;
   }
 }

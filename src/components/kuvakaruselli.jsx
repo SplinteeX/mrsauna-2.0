@@ -46,8 +46,8 @@ export default function Kuvakaruselli({ title, images }) {
   }
 
   return (
-    <section id="kuvakaruselli" className={styles.servicesSection}>
-      <div className={styles.sliderGrid}>
+    <section className={styles.servicesSection}>
+      <div className={styles.allSliders}>
         <ImageSlider images={saunaImages} title="Saunat" />
         <ImageSlider images={keittioImages} title="Keittiöt" />
         <ImageSlider

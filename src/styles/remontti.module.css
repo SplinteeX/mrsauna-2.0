@@ -1,74 +1,84 @@
 .section {
-	width: 100%;
-	padding: 2rem 1rem;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* centers vertically */
+  padding: 2rem 1rem; /* spacing from edges */
+  background-color: #ffffff; /* optional: white background for contrast */
 }
 
 .inner {
-	max-width: 800px;
-	margin: 0 auto;
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .title {
-	font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
-    font-size: 2.5em;
-    color: #000000 !important;
-    line-height: 1.3em;
-    font-weight: 500;
-    color: #333333;
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 3em;
+  color: #000000 !important;
+  line-height: 1.3em;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 2rem;
 }
 
 .content {
-	display: flex;
-    justify-content: center;
-    align-items: center;
-	gap: 2rem;
-	align-items: start;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap; /* ensures responsiveness */
+}
+
+.text {
+  width: 60%;
+  min-width: 300px;
+  text-align: left;
 }
 
 .text p {
-	line-height: 1.9;
-	color: #111827;
-	margin: 0 0 1.25rem 0;
-    text-align: left;
-    font-family: 'Poppins', Helvetica, Arial, Lucida, sans-serif;
-    font-size: 16px;
-}
-.text {
-    width: 50%;
+  line-height: 1.9;
+  color: #111827;
+  margin: 0 0 1.25rem 0;
+  font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 24px;
 }
 
 .images {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 280px;
 }
 
 .photo {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1000px) {
-	.content {
-		grid-template-columns: 1fr;
-	}
-	.images {
-		flex-direction: row;
-		gap: 0.5rem;
-	}
-	.photo {
-		width: 50%;
-	}
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text,
+  .images {
+    width: 100%;
+  }
+  .photo {
+    width: 100%;
+  }
 }
 
 @media (max-width: 520px) {
-	.title {
-		font-size: 1.75rem;
-	}
-	.photo {
-		width: 100%;
-	}
+  .title {
+    font-size: 1.75rem;
+  }
+  .text p {
+    font-size: 18px;
+  }
 }
