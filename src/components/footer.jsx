@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         <div className={styles.badge}>luotettava kumppani</div>
         <a
-          href="https://www.facebook.com"
+          href="https://www.facebook.com/www.mrsauna.fi"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.facebookIcon}

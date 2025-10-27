@@ -75,18 +75,7 @@ export default function ImageSlider({ images, title }) {
     setCurrentIndex(index);
   };
 
-  // 🌀 Add blurred background image to each slide dynamically
-  useEffect(() => {
-    if (sliderRef.current) {
-      const slides = sliderRef.current.querySelectorAll(`.${styles.slide}`);
-      slides.forEach((slide, index) => {
-        const img = slide.querySelector("img");
-        if (img && img.src) {
-          slide.style.setProperty("--bg-url", `url(${img.src})`);
-        }
-      });
-    }
-  }, [images]);
+  // Background image var is now set inline per slide; no DOM query needed.
 
   // 🌀 Add blurred background image to modal dynamically
   useEffect(() => {
@@ -124,6 +113,7 @@ export default function ImageSlider({ images, title }) {
                 index === currentIndex ? styles.active : ""
               }`}
               style={{
+                "--bg-url": `url(${image})`,
                 transform: `translateX(${(index - currentIndex) * 100}%)`,
               }}
               onClick={() => setIsModalOpen(true)}

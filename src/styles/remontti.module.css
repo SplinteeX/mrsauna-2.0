@@ -39,10 +39,12 @@
 
 .text p {
   line-height: 1.9;
-  color: #111827;
+  color: #000000;
   margin: 0 0 1.25rem 0;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2.2em;
 }
 
 .images {
