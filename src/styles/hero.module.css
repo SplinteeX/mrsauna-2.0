@@ -9,7 +9,7 @@
       rgba(0, 0, 0, 0.8) 60%,
       rgba(0, 0, 0, 0) 100%
     ),
-    url("background-image.webp") !important;
+    url("/public/background-image.webp") !important;
   background-size: cover; /* ✅ Makes the image cover the whole area */
   background-repeat: no-repeat; /* ✅ Prevents the image from repeating */
   background-position: center var(--bg-y, 0px); /* ✅ Parallax Y controlled via CSS var */
