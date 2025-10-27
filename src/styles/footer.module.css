@@ -1,6 +1,6 @@
 .footer {
   position: relative;
-  padding: 5rem 2rem;
+  padding: 3rem 2rem;
   background: url("/kiulu_2.webp") no-repeat center center;
   background-size: cover;
   color: #eaeaea;
@@ -25,12 +25,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   font-family: "Poppins", sans-serif;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: black;
   margin-bottom: 1rem;
@@ -39,7 +39,7 @@
 .contactDetails p,
 .contactInfo p {
   margin: 0.25rem 0;
-  font-size: 1.1rem;
+  font-size: 12px;
   line-height: 1.6;
   color: black;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
@@ -55,32 +55,27 @@
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
 }
 
-.badge {
-  background-color: #2e7d32;
-  color: #ffffff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1rem;
-  line-height: 1.2;
-  margin-top: 1rem;
+.footerContent img {
+  max-width: 150px;
+  height: auto;
+  margin: 1rem 0;
 }
 
 .facebookIcon {
-  background-color: #c62828;
+  background-color: #a02c10;
   color: #ffffff;
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 800;
   text-decoration: none;
   margin-top: 1rem;
   transition: background-color 0.3s ease;
+  padding: 10px;
+  border-radius: 2px;
 }
 
 .facebookIcon:hover {

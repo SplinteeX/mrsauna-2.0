@@ -1,12 +1,11 @@
 .yritysHero {
   display: flex;
-  min-height: 800px;
+  min-height: 80vh;
   font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system,
     "Helvetica Neue", Arial;
   position: relative;
   z-index: 0;
   background-color: #000;
-  height: 100vh;
 }
 
 .yritysHero::before {
@@ -42,6 +41,8 @@
   color: #fff;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 50%;
+  justify-content: right;
   padding: 72px 64px;
   z-index: 1; /* ✅ ensures text above all layers */
 }
@@ -52,20 +53,20 @@
 }
 
 .yritysContent h1 {
-  margin: 0 0 24px 0;
+  margin: 0 0 12px 0;
   font-weight: 400;
   letter-spacing: -0.02em;
   color: #ffffff;
   text-align: left;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   line-height: 1.3em;
 }
 
 .yritysContent p {
-  margin: 0 0 18px 0;
+  margin: 0 0 8px 0;
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 40px;
   font-weight: 400;
   text-align: left;

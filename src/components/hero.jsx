@@ -40,7 +40,7 @@ export default function Hero({ className = "" }) {
       <div className={styles.heroInner}>
         <div className={styles.heroContent}>
           <h1 className={styles.title}>MRsauna</h1>
-          <p className={styles.subtitle}>käsityönä kodin parhaat tilat</p>
+          <p className={styles.subtitle}>Puusepän mittatilaustyöt</p>
         </div>
       </div>
     </section>

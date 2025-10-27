@@ -15,7 +15,7 @@
 
 .title {
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   color: #000000 !important;
   line-height: 1.3em;
   font-weight: 500;
@@ -32,7 +32,7 @@
 }
 
 .text {
-  width: 60%;
+  width: 40%;
   min-width: 300px;
   text-align: left;
 }
@@ -42,7 +42,7 @@
   color: #000000;
   margin: 0 0 1.25rem 0;
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 2.2em;
 }

@@ -26,7 +26,7 @@ const Footer = () => {
           </p>
           <p>Y-tunnus: 2164017-0</p>
         </div>
-        <div className={styles.badge}>luotettava kumppani</div>
+        <img src="/LK_valkoinen_rgb.webp" alt="" />
         <a
           href="https://www.facebook.com/www.mrsauna.fi"
           target="_blank"

@@ -40,7 +40,7 @@
 
 .title {
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 80px;
+  font-size: 2em;
   letter-spacing: 6px;
   line-height: 1.4em;
   text-align: center;
@@ -50,7 +50,7 @@
 
 .subtitle {
   font-family: "Poppins", Helvetica, Arial, Lucida, sans-serif;
-  font-size: 2.25em;
+  font-size: 1.75em;
   line-height: 1.25;
   color: #fff;
 }
