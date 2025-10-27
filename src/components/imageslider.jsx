@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
-import styles from "../styles/imageslider.module.css";
+import styles from "../styles/ImageSlider.module.css";
 
 export default function ImageSlider({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
